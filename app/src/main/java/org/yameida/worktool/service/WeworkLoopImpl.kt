@@ -290,6 +290,8 @@ object WeworkLoopImpl {
                         null
                     )
                 )
+                //篝火新增：本地自动回复（关键词规则 / AI），默认关闭
+                org.yameida.worktool.autoreply.AutoReplyHook.onMessageList(roomType, titleList, messageList)
                 //推测是否回复并在房间等待指令
                 if (needInfer) {
                     val lastMessage = messageList.lastOrNull()

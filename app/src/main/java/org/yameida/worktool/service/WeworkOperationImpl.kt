@@ -2813,6 +2813,13 @@ object WeworkOperationImpl {
     }
 
     /**
+     * 篝火新增：在已经打开的聊天页发送本地自动回复（不经过后台下发）
+     */
+    fun sendLocalReply(title: String, text: String, at: String? = null): Boolean {
+        return sendChatMessage(text, at = at, title = title)
+    }
+
+    /**
      * 发送消息+@at
      */
     private fun sendChatMessage(text: String, at: String? = null, atList: List<String>? = null, reply: Boolean? = false, title: String): Boolean {

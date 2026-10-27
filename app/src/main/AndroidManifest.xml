@@ -59,6 +59,12 @@
             android:theme="@style/AppTheme">
         </activity>
         <activity
+            android:name="org.yameida.worktool.activity.AutoReplyActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
             android:name="org.yameida.worktool.activity.SettingsAdvanceActivity"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme">

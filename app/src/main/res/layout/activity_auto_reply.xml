@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <RelativeLayout
+        android:id="@+id/rl_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="自动回复"
+            android:textColor="@color/color_dashen"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_back_left"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:src="@drawable/back_icon" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/list_divider_line" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_bar"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="32dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="18dp"
+                android:paddingBottom="6dp"
+                android:text="总开关（默认全部关闭）"
+                android:textColor="@color/float_time_color"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_ai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="44dp"
+                android:text="AI 回复"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_rules"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="44dp"
+                android:text="关键词规则回复（优先于 AI）"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="18dp"
+                android:paddingBottom="6dp"
+                android:text="在哪些聊天里生效"
+                android:textColor="@color/float_time_color"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="群聊名称，一行一个，完全匹配（群名后面的人数括号会忽略）。不填就不会在任何群里回复。"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/et_groups"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="示例：产品交流群\n示例：售后答疑群"
+                android:minLines="3"
+                android:gravity="top|start"
+                android:inputType="textMultiLine"
+                android:textColor="@color/color_333333"
+                android:textColorHint="#BBBBBB"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_private"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="44dp"
+                android:text="私聊也生效"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="18dp"
+                android:paddingBottom="6dp"
+                android:text="AI 触发条件"
+                android:textColor="@color/float_time_color"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_require_at"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="44dp"
+                android:text="群里只有 @机器人 才回复"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="额外触发关键词，一行一个，消息包含任一个就触发"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/et_keywords"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="示例：机器人\n示例：请问"
+                android:minLines="2"
+                android:gravity="top|start"
+                android:inputType="textMultiLine"
+                android:textColor="@color/color_333333"
+                android:textColorHint="#BBBBBB"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_at_sender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="44dp"
+                android:text="回复时 @提问人（群聊）"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="18dp"
+                android:paddingBottom="6dp"
+                android:text="大模型接口（兼容 OpenAI 格式，密钥只存在本机）"
+                android:textColor="@color/float_time_color"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="接口地址"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/et_api_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="示例：https://api.example.com/v1"
+                android:inputType="textUri"
+                android:singleLine="true"
+                android:textColor="@color/color_333333"
+                android:textColorHint="#BBBBBB"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="密钥"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/et_api_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="示例：sk-xxxx（填你自己的）"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textColor="@color/color_333333"
+                android:textColorHint="#BBBBBB"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="模型名"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/et_model"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="示例：your-model-name"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColor="@color/color_333333"
+                android:textColorHint="#BBBBBB"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="系统提示词"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/et_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="告诉模型它的角色和回答风格"
+                android:minLines="3"
+                android:gravity="top|start"
+                android:inputType="textMultiLine"
+                android:textColor="@color/color_333333"
+                android:textColorHint="#BBBBBB"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="18dp"
+                android:paddingBottom="6dp"
+                android:text="回复上限（规则回复和 AI 回复合计）"
+                android:textColor="@color/float_time_color"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="每分钟最多回复几条"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/et_per_minute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="5"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textColor="@color/color_333333"
+                android:textColorHint="#BBBBBB"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="每天最多回复几条"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/et_per_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="200"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textColor="@color/color_333333"
+                android:textColorHint="#BBBBBB"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="18dp"
+                android:paddingBottom="6dp"
+                android:text="关键词规则"
+                android:textColor="@color/float_time_color"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="一行一条：关键词=&gt;回复。多个关键词用 | 分隔；关键词前加 = 表示整句完全匹配；回复里写 \\n 表示换行；# 开头是注释。"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/et_rules"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="示例：价格|多少钱=&gt;这里是示例回复，请改成你自己的内容\n示例：=你好=&gt;你好呀"
+                android:minLines="5"
+                android:gravity="top|start"
+                android:inputType="textMultiLine"
+                android:textColor="@color/color_333333"
+                android:textColorHint="#BBBBBB"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="14dp"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="12dp">
+
+                <Button
+                    android:id="@+id/bt_test"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:text="测试 AI 接口" />
+
+                <Button
+                    android:id="@+id/bt_save"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="保存" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

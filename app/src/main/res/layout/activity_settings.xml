@@ -64,6 +64,47 @@
                 android:textSize="@dimen/setting_end_font_size"
                 android:textStyle="bold" />
 
+            <!-- 篝火新增：AI 回复与关键词规则回复 -->
+            <RelativeLayout
+                android:id="@+id/rl_auto_reply"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/setting_start_padding"
+                android:paddingTop="@dimen/setting_vertical_padding"
+                android:paddingEnd="@dimen/setting_end_padding"
+                android:paddingBottom="@dimen/setting_vertical_padding">
+
+                <ImageView
+                    android:id="@+id/iv_auto_reply_"
+                    android:layout_width="@dimen/setting_start_image_width"
+                    android:layout_height="@dimen/setting_start_image_width"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/settings_hq" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/setting_start_padding"
+                    android:layout_toEndOf="@id/iv_auto_reply_"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="自动回复（AI / 关键词）"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/setting_start_font_size" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="在指定群里用大模型或固定规则回复，默认关闭"
+                        android:textColor="@color/color_999999"
+                        android:textSize="@dimen/setting_end_font_size" />
+                </LinearLayout>
+            </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/rl_reply_strategy"
                 android:layout_width="match_parent"

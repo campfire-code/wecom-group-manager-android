@@ -9,15 +9,33 @@ android {
         applicationId "org.yameida.worktool"
         minSdkVersion 24
         targetSdkVersion 30
-        versionCode 28011
-        versionName "2.8.1"
+        versionCode 28012
+        versionName "2.8.0-campfire.2"
+    }
+
+    // 签名只从环境变量读取；没有这些变量时 release 不签名（本机用 debug 包）
+    signingConfigs {
+        if (System.getenv("ANDROID_KEYSTORE_FILE") && System.getenv("ANDROID_KEYSTORE_PASSWORD")
+                && System.getenv("ANDROID_KEY_ALIAS") && System.getenv("ANDROID_KEY_PASSWORD")) {
+            release {
+                storeFile file(System.getenv("ANDROID_KEYSTORE_FILE"))
+                storePassword System.getenv("ANDROID_KEYSTORE_PASSWORD")
+                keyAlias System.getenv("ANDROID_KEY_ALIAS")
+                keyPassword System.getenv("ANDROID_KEY_PASSWORD")
+            }
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            if (signingConfigs.findByName('release') != null) signingConfig signingConfigs.release
         }
+    }
+    // 上游 targetSdk 30 过期会让 lintVital 拦住 release 构建；本分支不改 targetSdk，避免改变无障碍与后台行为
+    lint {
+        checkReleaseBuilds false
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -29,6 +47,7 @@ android {
 }
 
 dependencies {
+    testImplementation 'junit:junit:4.13.2'
     implementation project(':baselibrary')
     implementation project(':floatwindow')
     implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])

@@ -1,12 +1,14 @@
-# 篝火：打 v*-campfire.* 标签时转发布上游官方安装包（流程定义在 campfire-code/toolkit-hub）
+# 篝火：打 v*（如 v2.8.0-campfire.2）标签时自己出包，流程定义在 campfire-code/toolkit-hub
 name: release
+
 on:
   push:
-    tags: ['v*-campfire.*']
+    tags: ['v*']
+
 permissions:
   contents: write
+
 jobs:
   release:
-    uses: campfire-code/toolkit-hub/.github/workflows/mirror-release.yml@v1
-    with:
-      exclude: '\.(sig|json|blockmap|yml)$|^Source code'
+    uses: campfire-code/toolkit-hub/.github/workflows/android-release.yml@v1
+    secrets: inherit

@@ -68,6 +68,7 @@ class SettingsActivity : AppCompatActivity() {
             SPUtils.getInstance().put("autoReply", Constant.autoReply)
         })
         rl_reply_strategy.setOnClickListener { showReplyStrategyDialog() }
+        rl_auto_reply.setOnClickListener { AutoReplyActivity.enterActivity(this) }
         rl_log.setOnClickListener { showLogDialog() }
         rl_update.setOnClickListener { showUpdateDialog() }
         rl_donate.setOnClickListener { showDonateDialog() }

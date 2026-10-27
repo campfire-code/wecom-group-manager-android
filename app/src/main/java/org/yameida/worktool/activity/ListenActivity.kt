@@ -185,7 +185,7 @@ class ListenActivity : AppCompatActivity() {
     }
 
     private fun initData() {
-        HttpUtil.checkUpdate()
+        // 篝火：不再启动时自动向上游检查更新（上游的新版会覆盖本分支的自动回复功能）；新版本请到本仓库 Releases 下载
         HttpUtil.getMyConfig(toast = false)
         CacheUtil.autoDelete()
     }

@@ -55,3 +55,6 @@
 -keep class com.tencent.wework.api.** {
    *;
 }
+
+# 篝火新增：自动回复设置用 Gson 按字段名读写，release 包不能改名
+-keep class org.yameida.worktool.autoreply.AutoReplyConfig {*;}
